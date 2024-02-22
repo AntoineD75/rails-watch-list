@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="card mx-auto mt-5" style="max-width: 400px;">
+    <div class="card-body text-center">
+        <ul>
+          <% @list.movies.each do |movie| %>
+          <li><%= movie.title %> <%= link_to "Delete", bookmark_path(Bookmark.find_by(movie_id: movie)), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "delete_btn" %></li>
+          <% end %>
+        </ul>
+      <%= link_to "Back to list", lists_path %>
+      <%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+    </div>
+  </div>
+</div>

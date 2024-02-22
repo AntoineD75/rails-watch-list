@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="card mx-auto mt-5" style="max-width: 400px;">
+    <div class="card-body text-center">
+    <h1>My list</h1>
+    <% @lists.each do |list| %>
+    <p class="list-group-item">
+      <p><%= link_to list.name, list_path(list) %>
+      <%= link_to "Delete", list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "delete_btn" %></p>
+    </p>
+    <% end %>
+      <%= link_to "add a list", new_list_path %>
+   </div>
+  </div>
+</div>
